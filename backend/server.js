@@ -13,12 +13,18 @@ app.use(express.json());
 
 /* Connect to MongoDB via Mongoose */
 const uri = process.env.ATLAS_URI;
-console.log(uri);
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
+
+/* Routes */
+const exercisesRouter = require("./routes/exercises");
+const usersRouter = require("./routes/users");
+
+app.use("/exercises", exercisesRouter);
+app.use("/users", usersRouter);
 
 /* Set Up Server */
 app.listen(port, () => {
