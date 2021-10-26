@@ -61,3 +61,20 @@ modules.exports = router;
 - `User.find()` returns promise of all users
 - `User.findById()` returns a document by it's ID
 - `User.findByIdAndDelete()` returns and deletes a document by it's ID
+
+### Frontend
+
+- `window.location = "/";` changes the url to go back to the home page.
+- **DatePicker**:
+
+```
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+<div>
+  <DatePicker
+    selected={this.state.date}
+    onChange={this.onChangeDate}
+  />
+</div>
+```
